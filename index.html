@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Inventory Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-3" href="#">Product Inventory Management</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <div class="d-flex flex-wrap gap-3" id="summary-cards">
+        <div class="card text-center bg-info text-white small-card">
+          <div class="card-body py-2 px-3">
+            <h6 class="mb-1">Total Products</h6>
+            <p id="total-products" class="mb-0 fw-bold">0</p>
+          </div>
+        </div>
+        <div class="card text-center bg-warning text-dark small-card">
+          <div class="card-body py-2 px-3">
+            <h6 class="mb-1">Low Stock</h6>
+            <p id="low-stock" class="mb-0 fw-bold">0</p>
+          </div>
+        </div>
+        <div class="card text-center bg-success text-white small-card">
+          <div class="card-body py-2 px-3">
+            <h6 class="mb-1">Total Value</h6>
+            <p id="total-value" class="mb-0 fw-bold">₹0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+ 
+<div class="container my-4 wide-container">
+
+  
+  <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap">
+    <div>
+      <select id="categoryFilter" class="form-select">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <input type="text" id="searchInput" class="form-control w-25" placeholder="Search by name...">
+    <div class="mt-2 mt-md-0">
+      <button class="btn btn-success me-2" id="exportCSV">Export CSV</button>
+      <button class="btn btn-secondary me-2" id="reportBtn">Report</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Add Product</button>
+    </div>
+  </div>
+
+  <table class="table table-striped table-bordered shadow-sm align-middle" id="productTable">
+    <thead class="table-primary">
+      <tr>
+        <th>#</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Stock Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add/Edit Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm">
+            <input type="hidden" id="productIdHidden">
+
+            <div class="mb-3">
+              <label for="manualProductId" class="form-label">Product ID</label>
+              <input type="text" class="form-control" id="manualProductId" placeholder="Enter Product ID" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select id="category" class="form-select">
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Toys">Toys</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" class="form-control" id="quantity" min="0" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="unitPrice" class="form-label">Unit Price</label>
+              <input type="number" class="form-control" id="unitPrice" step="0.01" required>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

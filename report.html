@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventory Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+      min-height: 100vh;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #002f4b, #005f73);
+    }
+    .report-section{
+      max-width: 1200px;
+      margin: 60px auto;
+    }
+    canvas{
+      max-width: 450px;
+      height: 350px;
+    }
+    table{
+      width: 100%;
+    }
+    .card{
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 992px) {
+      .row{
+        flex-direction: column;
+        align-items: center;
+      }
+      canvas{
+        max-width: 350px;
+        margin-bottom: 30px;
+      }
+      @media print{
+         .btn,.no-print * {
+    display: none !important;
+  }
+}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark shadow py-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h2 class="text-white m-0">Inventory Report</h2>
+      <button class="btn btn-light fw-bold" onclick="window.location.href='index.html'">
+        ← Back to Dashboard
+      </button>
+    </div>
+  </nav>
+
+  <div class="report-section container">
+    
+    <h3 class="text-center text-primary mb-4">Category-wise Product Analysis</h3>
+    <div class="text-center mt-4 no-print">
+      <button class="btn btn-outline-primary fw-bold" onclick="window.print()">Download / Print Report</button>
+    </div><br>
+    <div class="row align-items-start justify-content-center g-4">
+      <div class="col-lg-6 text-center">
+        <div class="card p-3">
+          <h5 class="text-secondary mb-3">Category Distribution</h5>
+          <canvas id="reportChart"></canvas>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card p-3">
+          <h5 class="text-secondary mb-3">Category Summary</h5>
+          <table class="table table-bordered table-striped align-middle shadow-sm">
+            <thead class="table-primary">
+              <tr>
+                <th>Category Name</th>
+                <th>Total Products</th>
+              </tr>
+            </thead>
+            <tbody id="categoryTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-muted mb-4" id="reportDate"></p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="report.js"></script>
+</body>
+</html>

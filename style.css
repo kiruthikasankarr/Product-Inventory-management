@@ -1,0 +1,93 @@
+body {
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+.card p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.low-stock {
+  background-color: #ffeeba !important;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.stock-status {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.stock-high {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.stock-low {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.toast-container {
+  z-index: 9999;
+}
+
+#categoryChart {
+  margin: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+button.btn {
+  font-size: 1rem;
+  padding: 10px 18px;
+  font-weight: 500;
+}
+
+#searchInput {
+  font-size: 1rem;
+  padding: 8px 12px;
+  height: 45px;
+}
+
+.table {
+  font-size: 1.05rem;
+}
+
+.table th,
+.table td {
+  padding: 14px 16px !important;
+  vertical-align: middle;
+}
+
+#categoryChart {
+  display: block;
+  margin: 0 auto;
+}
+
+.card-body h5 {
+  font-size: 1.1rem;
+}
+
+.card-body p {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.navbar {
+  background: linear-gradient(90deg, #002f4b, #005f73);
+}
+.wide-container {
+  max-width: 80%;
+}
+
+#productTable {
+  width: 100%;
+}
